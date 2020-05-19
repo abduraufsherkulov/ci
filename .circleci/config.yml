@@ -18,6 +18,10 @@ jobs:
       - run:
           name: show folders
           command: pwd
+      - run: 
+          name: Deploy Over SSH
+          command: |
+            scp -P 7822 -r ./build ttuz@nl1-ls2.a2hosting.com:/tt.uz/
   deploy:
     machine:
       enabled: true
