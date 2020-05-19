@@ -20,7 +20,7 @@ jobs:
           command: |
             ls
       - run: 
-          name: Show folders
+          name: Show directory
           command: |
             pwd
       - run: 
