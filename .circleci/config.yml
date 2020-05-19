@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   build-and-test:
+    working_directory: ~/project
     docker:
       - image: circleci/node:12.16.1
     steps:
@@ -11,6 +12,9 @@ jobs:
       - run:
           name: Build
           command: npm run build
+      - run:
+          name: show folders
+          command: ls
   deploy:
     machine:
       enabled: true
