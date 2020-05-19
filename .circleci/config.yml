@@ -24,7 +24,7 @@ jobs:
       - run: 
           name: Deploy Over SSH
           command: |
-            scp -P 7822 -r ./build/* $SSH_USER@$SSH_HOST:./test/
+            ssh -p 7822 ttuz@nl1-ls2.a2hosting.com 'cd public_html/tt.uz/ && git pull'
   deploy:
     machine:
       enabled: true
