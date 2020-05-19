@@ -15,6 +15,9 @@ jobs:
       - run:
           name: show folders
           command: ls
+      - run:
+          name: show folders
+          command: pwd
   deploy:
     machine:
       enabled: true
