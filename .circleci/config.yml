@@ -24,30 +24,11 @@ jobs:
       - run: 
           name: Deploy Over SSH
           command: |
-            ssh -p 7822 ttuz@nl1-ls2.a2hosting.com 'cd public_html/tt.uz/ && git pull'
-  deploy:
-    machine:
-      enabled: true
-    steps:
-      - run: 
-          name: Show folders
-          command: |
-            ls
-      - run: 
-          name: Show directory
-          command: |
-            pwd
-      - run: 
-          name: Deploy Over SSH
-          command: |
-            scp -P 7822 -r ./build ttuz@nl1-ls2.a2hosting.com:/tt.uz/
+            ssh -p 7822 $SSH_USER@$SSH_HOST 'cd public_html/tt.uz/ && git pull'
 workflows:
    build-and-deploy:
      jobs:
-       - build-and-test
-       - deploy:
-           requires:
-             - build-and-test # only deploy once build job has completed
+       - build-and-test:
            filters:
              branches:
                only: master # only deploy on the master branch
