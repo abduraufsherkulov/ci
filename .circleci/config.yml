@@ -24,7 +24,11 @@ jobs:
       - run: 
           name: Deploy Over SSH
           command: |
-            ssh -o StrictHostKeyChecking=no -p 7822 $SSH_USER@$SSH_HOST 'cd public_html/tt.uz/ && git pull'
+            ssh -o StrictHostKeyChecking=no -p 7822 $SSH_USER@$SSH_HOST 'exit'
+      - run: 
+          name: Deploy Over SSH
+          command: |
+            scp -P 7822 -r ./build/* ttuz@nl1-ls2.a2hosting.com:./test/
 workflows:
    build-and-deploy:
      jobs:
