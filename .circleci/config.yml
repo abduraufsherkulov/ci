@@ -6,6 +6,9 @@ jobs:
       - image: circleci/node:12.16.1
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "6d:5d:3b:88:05:6c:4c:bb:cd:58:3a:c2:25:57:ff:a7"
       - run:
           name: Install
           command: npm install
