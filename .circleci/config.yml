@@ -24,11 +24,7 @@ jobs:
       - run: 
           name: Deploy Over SSH
           command: |
-            ssh -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST"
-      - run: 
-          name: Deploy Over SSH
-          command: |
-            ssh -p 7822 $SSH_USER@$SSH_HOST 'cd public_html/tt.uz/ && git pull'
+            ssh -o StrictHostKeyChecking=no -p 7822 $SSH_USER@$SSH_HOST 'cd public_html/tt.uz/ && git pull'
 workflows:
    build-and-deploy:
      jobs:
