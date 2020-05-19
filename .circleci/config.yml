@@ -21,7 +21,7 @@ jobs:
       - run: 
           name: Deploy Over SSH
           command: |
-            scp -P 7822 -r ./build ttuz@nl1-ls2.a2hosting.com:/tt.uz/
+            scp -P 7822 -r ./build $SSH_USER@$SSH_HOST:/tt.uz/
   deploy:
     machine:
       enabled: true
